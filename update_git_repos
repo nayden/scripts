@@ -1,0 +1,18 @@
+#!/bin/sh
+
+GITDIR="${HOME}/openbsd/git"
+REPOS="freebsd illumos-gate smartos-live"
+CUR_DIR=${PWD}
+
+for DIR in src www ports ; do
+	printf "${GITDIR}/${DIR}\n"
+	cd ${GITDIR}/${DIR}
+	git pull
+done
+
+for REPO in ${REPOS}; do
+	printf "${HOME}/${REPO}\n"
+	cd $HOME/${REPO}
+	git pull
+done
+

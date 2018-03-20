@@ -1,0 +1,11 @@
+#!/bin/sh 
+set -x
+
+doas /usr/sbin/pkg_delete -I dwm dstat
+find /usr/ports/packages -name dwm*  | xargs rm -f -
+
+cd /usr/ports/x11/dwm
+make clean
+make package
+
+doas /usr/sbin/pkg_add -I -D unsigned /usr/ports/packages/amd64/all/dwm-6.1p0 dstat

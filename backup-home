@@ -1,0 +1,3 @@
+#!/bin/ksh
+
+/usr/local/bin/rsync --delete-after --exclude '.cache' --exclude '.mozilla' --exclude 'cvsync' --exclude 'ports' --exclude 'www' --exclude 'sets' --exclude 'vmm-images' --exclude 'netbsd' --exclude 'freebsd' --exclude 'smartos-live' --exclude 'openbsd' --exclude '.firefox' --exclude '*.core' --exclude 'Downloads' --exclude 'DragonFlyBSD' --exclude 'linux-stable-grsec' --exclude 'illumos-joyent' --exclude 'git' -av /home/nayden alix2:/backup

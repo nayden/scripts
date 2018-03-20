@@ -1,0 +1,23 @@
+#!/bin/sh
+
+function usage {
+	echo "Usage: mute [on|off]"
+	exit 1
+}
+
+if [ $# -ne 1 ]; then
+	mixerctl outputs.master.mute
+	exit 0
+fi
+
+MUTE_VALUE=$1
+
+if [ ${MUTE_VALUE} == "on" ]; then
+	mixerctl outputs.master.mute=on
+	exit 0
+elif [ ${MUTE_VALUE} == "off" ]; then
+	mixerctl outputs.master.mute=off
+	exit 0
+fi
+
+usage

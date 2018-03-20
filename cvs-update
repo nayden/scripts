@@ -1,0 +1,6 @@
+#!/bin/ksh
+
+for REPO in src www ports xenocara; do
+	echo "Updating repo: ${REPO}"
+	rsync -a cvs.openbsd.org:/cvs/${REPO}/ ${HOME}/cvsync/${REPO}
+done

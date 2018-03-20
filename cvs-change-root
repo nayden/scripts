@@ -1,0 +1,19 @@
+#!/bin/sh
+
+function usage {
+	echo "Usage: $basename <new CVSROOT>"
+	exit 1
+}
+
+if [ $# -ne 1 ]; then
+	usage
+fi
+
+if [ ! -d CVS ]; then
+	echo "No local CVS directory"
+	exit 1
+fi
+
+CVSROOT=$( echo "$1" | sed -e 's/\//\\\//g' )
+find . -name Root -exec sed -i 's/.*/'${CVSROOT}'/' {} \;
+echo "New CVSROOT=$1"

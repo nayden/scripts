@@ -1,0 +1,3 @@
+#!/bin/ksh
+
+cvs log 2>/dev/null | grep author: | awk '{print $5}' | sed -e 's/;//' | sort | uniq -c | sort -nr  | head -n10

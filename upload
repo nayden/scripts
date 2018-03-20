@@ -1,0 +1,16 @@
+#!/bin/sh
+#set -x
+DIFF=$1
+
+if [[ -z ${DIFF} ]]; then
+	printf "No diff file provided.\n"
+	exit 1
+fi
+
+if [[ -f ${DIFF} ]]; then
+	scp ${DIFF} nayden@ndtm.net:~/${DIFF}
+else
+	printf "${DIFF} file does not exist.\n"
+	exit 1
+fi
+
